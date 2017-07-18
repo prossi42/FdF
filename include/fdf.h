@@ -19,26 +19,28 @@
 
 typedef struct		s_param
 {
-	void	*init;
-	void	*wdow;
-	char	*line;
 	char	*buf;
 	char	*num;
 	int		fd;
 	int		x_max;
 	int		y_max;
-	int		count;
-	int		count_swap;
+	int		x;
 	int		**x_y;
 	char	**ychar;
 	char	**xchar;
 	int		i_affich;
 }					t_param;
 
+typedef struct		s_mlx
+{
+	void 	*init;
+	void 	*wdow;
+	int		x_pixel;
+	int		y_pixel;
+}					t_mlx;
 int		ft_key_number(int keycode);
 int		ft_parsing(t_param *param);
 void 	ft_affich(t_param *param, float option);
-void 	ft_count_xmax_ymax(t_param *param);
 int 	ft_tab_x_y(t_param *param);
 int		ft_init_struct(t_param *param);
 int		ft_mlx(t_param *param);

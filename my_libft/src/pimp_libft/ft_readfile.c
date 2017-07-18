@@ -24,11 +24,6 @@ char	*ft_readfile(int fd)
 	while ((ret = read(fd, buf, BUFF_SIZE)))
 	{
 		buf[ret] = '\0';
-		if (ret == -1)
-		{
-			ft_putstr("Read Error");
-			return (NULL);
-		}
 		tmp = ft_strcat(tmp, buf);
 		tmp = ft_realloc_free(tmp, ft_strlen(buf));
 	}

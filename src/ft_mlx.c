@@ -24,11 +24,18 @@ int			key_hook(int keycode, t_param *param)
 
 int			ft_mlx(t_param *param)
 {
+	int		i;
+
+	i = 0;
     param->init = mlx_init();
     param->wdow = mlx_new_window(param->init, 1200, 1200, "1st Window");
     mlx_key_hook(param->wdow, key_hook, &param);
-    mlx_string_put(param->init, param->wdow, 500, 200, 0xFFFFFF, "Bonjour !");
-//	mlx_pixel_put(param.init, param.wdow, )
+    // mlx_string_put(param->init, param->wdow, 500, 200, 0xFFFFFF, "Bonjour !");
+	while (i < param->y_max)
+	{
+		mlx_pixel_put(param->init, param->wdow, param, 200, 0xFFFFFF);
+		i++;
+	}
 	mlx_loop(param->init);
     return (0);
 }

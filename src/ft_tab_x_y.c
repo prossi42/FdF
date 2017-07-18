@@ -25,6 +25,5 @@ int    ft_tab_x_y(t_param *param)
             return (-1);
         i++;
     }
-    param->x_y[param->y_max] = NULL;
     return (0);
 }

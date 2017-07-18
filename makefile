@@ -18,7 +18,7 @@ NAME = fdf
 SRC_PATH = src
 
 SRC_NAME = main.c ft_init_struct.c ft_key_number.c ft_mlx.c ft_parsing.c \
-			ft_tab_x_y.c ft_count_xmax_ymax.c ft_affich.c ft_check_map.c \
+			ft_tab_x_y.c ft_affich.c ft_check_map.c \
 			ft_tab.c ft_charjoinstr.c
 
 # OBJ_PATH = $(SRC_PATH)
