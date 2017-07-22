@@ -26,8 +26,7 @@ typedef struct		s_param
 	int		y_max;
 	int		x;
 	int		**x_y;
-	char	**ychar;
-	char	**xchar;
+	char	**x_ychar;
 	int		i_affich;
 }					t_param;
 
@@ -35,17 +34,24 @@ typedef struct		s_mlx
 {
 	void 	*init;
 	void 	*wdow;
-	int		x_pixel;
-	int		y_pixel;
+	int		win_size_x;
+	int		win_size_y;
+	int		posx;
+	int		posy;
+	int		padding_x;
+	int		padding_y;
+	int		padding_init_x;
+	int		padding_init_y;
 }					t_mlx;
 int		ft_key_number(int keycode);
 int		ft_parsing(t_param *param);
 void 	ft_affich(t_param *param, float option);
 int 	ft_tab_x_y(t_param *param);
 int		ft_init_struct(t_param *param);
-int		ft_mlx(t_param *param);
+int		ft_mlx(t_param *param, t_mlx *mlx);
 int		ft_check_map(t_param *param);
 int		ft_tab(t_param *param);
 void 	ft_charjoinstr(t_param *param, char c);
+int     ft_init_struct2(t_mlx *mlx, t_param *param);
 
 #endif

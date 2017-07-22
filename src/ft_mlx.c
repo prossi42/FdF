@@ -12,6 +12,33 @@
 
 #include "../include/fdf.h"
 
+void ft_trace_seg(t_param *param, t_mlx *mlx)
+{
+  	int 	dx;
+  	int		dy;
+  	int		cumul;
+  	int		x;
+  	int		y;
+
+  	x = mlx->posx;
+  	y = mlx->posy;
+  	dx = (1.20 * mlx->posx) - mlx->posx;
+  	dy = (1.20 * mlx->posy) - mlx->posy;
+  	mlx_pixel_put(mlx->init, mlx->wdow, x, y, 0xFFFFFF);
+  	cumul = dx / 2;
+	x = mlx->posx++;
+  	while (x <= (1.20 * mlx->posx))
+	{
+    	cumul += dy;
+    	if (cumul >= dx)
+		{
+      		cumul -= dx;
+      		y += 1;
+		}
+		mlx_pixel_put(mlx->init, mlx->wdow, x, y, 0xFFFFFF);
+		x++;
+	}
+}
 int			key_hook(int keycode, t_param *param)
 {
 	int		letter;
@@ -22,20 +49,37 @@ int			key_hook(int keycode, t_param *param)
 	return (0);
 }
 
-int			ft_mlx(t_param *param)
+int			ft_mlx(t_param *param, t_mlx *mlx)
 {
 	int		i;
+	int		x;
+	int		y;
 
 	i = 0;
-    param->init = mlx_init();
-    param->wdow = mlx_new_window(param->init, 1200, 1200, "1st Window");
-    mlx_key_hook(param->wdow, key_hook, &param);
-    // mlx_string_put(param->init, param->wdow, 500, 200, 0xFFFFFF, "Bonjour !");
-	while (i < param->y_max)
+	x = 0;
+	y = 0;
+	if (ft_init_struct2(mlx, param) != 0)
+		return (-1);
+    mlx->init = mlx_init();
+    mlx->wdow = mlx_new_window (mlx->init, mlx->win_size_x, mlx->win_size_y, "1st Window");
+    mlx_key_hook(mlx->wdow, key_hook, &param);
+	while (y < param->y_max)
 	{
-		mlx_pixel_put(param->init, param->wdow, param, 200, 0xFFFFFF);
-		i++;
+
+		while (x < param->x_max)
+		{
+			if (param->x_y[y][x] > 0)
+			{
+				ft_trace_seg(param, mlx);
+				mlx->posx = mlx->posx + mlx->padding_x;
+			}
+			x++;
+		}
+		x = 0;
+		mlx->posx = (mlx->win_size_x / 15);
+		mlx->posy = mlx->posy + mlx->padding_y;
+		y++;
 	}
-	mlx_loop(param->init);
+	mlx_loop(mlx->init);
     return (0);
 }

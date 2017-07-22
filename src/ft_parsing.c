@@ -32,20 +32,20 @@ int     ft_get_number(t_param *param)
 
     y = 0;
     x = 0;
-    param->ychar = ft_strsplit(param->buf, '\n');
-    while (param->ychar[y])
+    param->x_ychar = ft_strsplit(param->buf, '\n');
+    while (param->x_ychar[y])
     {
-        while (param->ychar[y][x])
+        while (param->x_ychar[y][x])
         {
-            while (param->ychar[y][x] == ' ')
+            while (param->x_ychar[y][x] == ' ')
                 x++;
             if (!param->num)
                 param->num = ft_strnew(1);
-            while (param->ychar[y][x] >= '0' && param->ychar[y][x] <= '9')
+            while (param->x_ychar[y][x] >= '0' && param->x_ychar[y][x] <= '9')
             {
-                if (param->ychar[y][x - 1] == '-')
-                    ft_charjoinstr(param, param->ychar[y][x - 1]);
-                ft_charjoinstr(param, param->ychar[y][x]);
+                if (param->x_ychar[y][x - 1] == '-')
+                    ft_charjoinstr(param, param->x_ychar[y][x - 1]);
+                ft_charjoinstr(param, param->x_ychar[y][x]);
                 x++;
             }
             ft_putintab(param, y);

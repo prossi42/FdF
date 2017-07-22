@@ -16,6 +16,7 @@
 int			main(int argc, char **argv)
 {
 	t_param		param;
+	t_mlx		mlx;
 	int			i;
 	int			ret;
 
@@ -48,7 +49,7 @@ int			main(int argc, char **argv)
 		return (-1);
 	}
     ft_affich(&param, 0);
-	if (ft_mlx(&param) != 0)
+	if (ft_mlx(&param, &mlx) != 0)
 	{
 		ft_putendl("Erreur Fonctions mlx -> ft_mlx");
 		return (-1);
