@@ -19,32 +19,32 @@ void	ft_affich_pars(t_main *main, int option)
     if (option == 1)
     {
         ft_putendl(" ---> Ok ! So this is the Map...\n");
-        sleep(2);
+        sleep(0);
         ft_putstr(" ---> Valeur Max en x : [");
         ft_putnbr(main->pars.x_max);
         ft_putendl("]");
         ft_putstr(" ---> Valeur Max en y : [");
         ft_putnbr(main->pars.y_max);
         ft_putendl("]\n");
-        sleep(2);
+        sleep(0);
     }
 }
 
 void	ft_affich_draw(t_main *main, int option)
 {
-    
+
 }
 
 void    ft_affich_pres(void)
 {
     ft_putendl("\n\n ---> Loading...");
-    sleep(2);
+    sleep(0);
     ft_putendl(" ---> Thermo-nuclear reactor launch");
-    sleep(2);
+    sleep(0);
     ft_putendl(" ---> Ok it's a simply FdF but...i need power");
-    sleep(2);
+    sleep(0);
     ft_putendl("\n\t\t Hi, Welcome aboard !\n\n");
-    sleep(2);
+    sleep(0);
 }
 void    ft_affich_main(t_main *main, int option)
 {

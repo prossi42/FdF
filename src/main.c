@@ -38,6 +38,10 @@ int			main(int argc, char **argv)
 		ft_affich_pars(&main, 0);
 		return (-1);
 	}
+	if (ft_mlx(&main) == -1)
+	{
+		return (-1);
+	}
 	close(main.fd);
 	return (0);
 }

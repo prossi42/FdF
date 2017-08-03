@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_parsing.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/08/02 23:01:46 by prossi            #+#    #+#             */
+/*   Updated: 2017/08/02 23:01:47 by prossi           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/fdf.h"
 
 void    ft_count_point(t_main *main)
@@ -88,6 +100,6 @@ int     ft_parsing(t_main *main)
     ft_count_point(main);
     main->pars.tabi = ft_tabint(main->pars.x_max, main->pars.y_max);
     ft_get_number(main);
-	ft_affich_main(&main, 4);
+	ft_affich_main(main, 4);
     return (0);
 }

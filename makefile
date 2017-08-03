@@ -13,10 +13,11 @@
 .PHONY: all, clean, fclean, re
 
 NAME = fdf
- 
+
 SRC_PATH = src
 
-SRC_NAME = main.c ft_init_struct.c ft_affich.c ft_parsing.c
+SRC_NAME = main.c ft_init_struct.c ft_affich.c ft_parsing.c ft_mlx.c \
+			ft_key_number.c
 
 # OBJ_PATH = $(SRC_PATH)
 
@@ -24,7 +25,7 @@ LDFLAGS = -Lmy_libft
 LDLIBS = my_libft/my_libft.a
 
 CC = gcc
-CFLAGS = -framework OpenGL -framework Appkit
+CFLAGS = -lmlx -framework OpenGL -framework Appkit
 
 # OBJ_NAME = $(SRC_NAME:.c=.o)
 
