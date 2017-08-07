@@ -27,8 +27,8 @@ typedef struct		s_draw
 	void			*wdow;
 	int				winsize_x;
 	int				winsize_y;
-	int				posx;
-	int				posy;
+	double			posx;
+	double			posy;
 	int				padx;
 	int				pady;
 }					t_draw;
@@ -48,6 +48,7 @@ typedef struct		s_first
 	t_draw			draw;
 	int				fd;
 	char			*buf;
+	double			prof;
 }					t_first;
 
 void		ft_affich_first(t_first *first, int option);
@@ -57,7 +58,7 @@ void		ft_init_struct(t_first *first);
 int			ft_parsing(t_first *first);
 int			ft_mlx(t_first *first);
 int			ft_key_number(int keycode);
-// void		ft_map2d(t_first *first);
+void		ft_map2d(t_first *first);
 void 		ft_map3d(t_first *first);
 
 #endif

@@ -19,10 +19,10 @@ int			ft_key_number(int keycode)
         ft_putstr("\n	End Of Program");
         exit(-1);
     }
-    // if (keycode == 0)
-    //     return (97);
-    // if (keycode == 11)
-    //     return (98);
+    if (keycode == 0)
+        return (97);
+    if (keycode == 11)
+        return (98);
     // if (keycode == 8)
     //     return (99);
     // if (keycode == 2)

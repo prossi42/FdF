@@ -17,6 +17,10 @@ int		key_hook(int keycode, t_first *first)
 	int		letter;
 
 	letter = ft_key_number(keycode);
+	if (letter == 97)
+		first->prof++;
+	if (letter == 98)
+		first->prof--;
 	return (0);
 }
 
@@ -38,14 +42,15 @@ void	ft_tabpos(t_first *first)
 			}
 			if (first->pars.tabi[y][x] != 0)
 			{
-				first->pars.tabposx[y][x] = ((first->draw.posx + first->pars.tabi[y][x]) * 1.20);
-				first->pars.tabposy[y][x] = ((first->draw.posy + first->pars.tabi[y][x]) * 1.20);
+				first->pars.tabposx[y][x] = first->draw.posx;
+				first->pars.tabposy[y][x] = ((first->draw.posy + first->pars.tabi[y][x]) * first->prof);
 			}
 			first->draw.posx += first->draw.padx;
+			first->draw.posy -= 1;
     		x++;
 		}
 		x = 0;
-		first->draw.posx = (first->draw.winsize_x) / 4;
+		first->draw.posx = (first->draw.winsize_x / 4);
 		y++;
 		first->draw.posy += first->draw.pady;
 	}
@@ -57,8 +62,8 @@ int		ft_mlx(t_first *first)
 	first->draw.wdow = mlx_new_window(first->draw.init, first->draw.winsize_x, first->draw.winsize_y, "WTF !?!");
 	mlx_key_hook(first->draw.wdow, key_hook, first);
 	ft_tabpos(first);
-	// ft_map2d(first);
-	ft_map3d(first);
+	ft_map2d(first);
+	// ft_map3d(first);
 	mlx_loop(first->draw.init);
 	return (0);
 }
