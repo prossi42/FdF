@@ -18,11 +18,12 @@ void		ft_init_struct(t_first *first)
     first->pars.x_max = 0;
     first->pars.y_max = 0;
     first->buf = NULL;
-    first->draw.winsize_x = 1800;
-    first->draw.winsize_y = 900;
-    first->draw.posx = (first->draw.winsize_x) / 4;
+    first->draw.winsize_x = 2500;
+    first->draw.winsize_y = 1200;
+    first->draw.posx = (first->draw.winsize_x) / 9;
     first->draw.posy = (first->draw.winsize_y) / 4;
-    first->draw.padx = (first->draw.winsize_x) / 60;
-    first->draw.pady = (first->draw.winsize_y) / 30;
-    first->prof = 2.20;
+    first->draw.padx = (first->draw.winsize_x) / 200;
+    first->draw.pady = (first->draw.winsize_y) / 200;
+    first->draw.prof = 10;
+    first->draw.rot = 0;
 }

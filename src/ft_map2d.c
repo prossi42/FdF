@@ -72,7 +72,7 @@ void        ft_trace(t_first *first, int x, int y)
 {
     if ((x + 1) < first->pars.x_max)
         ft_segment(first->pars.tabposx[y][x], first->pars.tabposy[y][x], first->pars.tabposx[y][x + 1], first->pars.tabposy[y][x + 1], first);
-    if ((y + 2) < first->pars.y_max)
+    if ((y + 1) < first->pars.y_max - 1)
         ft_segment(first->pars.tabposx[y][x], first->pars.tabposy[y][x], first->pars.tabposx[y + 1][x], first->pars.tabposy[y + 1][x], first);
 }
 

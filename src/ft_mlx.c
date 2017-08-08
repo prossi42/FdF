@@ -18,9 +18,9 @@ int		key_hook(int keycode, t_first *first)
 
 	letter = ft_key_number(keycode);
 	if (letter == 97)
-		first->prof++;
+		first->draw.prof++;
 	if (letter == 98)
-		first->prof--;
+		first->draw.prof--;
 	return (0);
 }
 
@@ -42,15 +42,16 @@ void	ft_tabpos(t_first *first)
 			}
 			if (first->pars.tabi[y][x] != 0)
 			{
-				first->pars.tabposx[y][x] = first->draw.posx;
-				first->pars.tabposy[y][x] = ((first->draw.posy + first->pars.tabi[y][x]) * first->prof);
+				first->pars.tabposx[y][x] = first->draw.posx + (first->pars.tabi[y][x] * first->draw.prof);
+				first->pars.tabposy[y][x] = first->draw.posy + (first->pars.tabi[y][x] * first->draw.prof);
 			}
 			first->draw.posx += first->draw.padx;
-			first->draw.posy -= 1;
+			first->draw.posy += first->draw.rot;
     		x++;
 		}
+		first->draw.posy -= first->draw.rot * x;
 		x = 0;
-		first->draw.posx = (first->draw.winsize_x / 4);
+		first->draw.posx = (first->draw.winsize_x / 9);
 		y++;
 		first->draw.posy += first->draw.pady;
 	}

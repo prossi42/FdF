@@ -31,6 +31,8 @@ typedef struct		s_draw
 	double			posy;
 	int				padx;
 	int				pady;
+	long double		prof;
+	int				rot;
 }					t_draw;
 
 typedef struct		s_pars
@@ -48,7 +50,6 @@ typedef struct		s_first
 	t_draw			draw;
 	int				fd;
 	char			*buf;
-	double			prof;
 }					t_first;
 
 void		ft_affich_first(t_first *first, int option);
