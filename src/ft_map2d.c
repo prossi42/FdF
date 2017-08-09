@@ -31,7 +31,7 @@ void    ft_segment(int xi,int yi,int xf,int yf, t_first *first)
       yinc = ( dy > 0 ) ? 1 : -1;
       dx = abs(dx);
       dy = abs(dy);
-      mlx_pixel_put(first->draw.init, first->draw.wdow, x, y, 0xFFFFFF);
+      mlx_pixel_put_to_image(first->draw, x, y, 0xFFFFFF);
       if (dx > dy)
       {
             cumul = dx / 2;
@@ -45,7 +45,7 @@ void    ft_segment(int xi,int yi,int xf,int yf, t_first *first)
                     cumul -= dx;
                     y += yinc;
                 }
-                mlx_pixel_put(first->draw.init, first->draw.wdow, x, y, 0xFFFFFF);
+                mlx_pixel_put_to_image(first->draw, x, y, 0xFFFFFF);
                 i++;
             }
       }
@@ -62,7 +62,7 @@ void    ft_segment(int xi,int yi,int xf,int yf, t_first *first)
                   cumul -= dy ;
                   x += xinc ;
               }
-              mlx_pixel_put(first->draw.init, first->draw.wdow, x, y, 0xFFFFFF);
+              mlx_pixel_put_to_image(first->draw, x, y, 0xFFFFFF);
               i++;
           }
       }
@@ -87,7 +87,7 @@ void		ft_map2d(t_first *first)
 	{
 		while (x < first->pars.x_max)
 		{
-    		mlx_pixel_put(first->draw.init, first->draw.wdow, first->pars.tabposx[y][x], first->pars.tabposy[y][x], 0xFFFFFF);
+    		mlx_pixel_put_to_image(first->draw, first->pars.tabposx[y][x], first->pars.tabposy[y][x], 0xFFFFFF);
             ft_trace(first, x, y);
     		x++;
 		}

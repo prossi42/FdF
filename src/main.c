@@ -22,7 +22,7 @@ int			main(int argc, char **argv)
 		return (-1);
 	}
 	ft_affich_first(&first, 1);
-	ft_init_struct(&first);
+	ft_init_struct(&first, 1);
 	if ((first.fd = open(argv[1], O_RDONLY)) == -1)
 	{
 		ft_affich_first(&first, 2);
@@ -38,6 +38,7 @@ int			main(int argc, char **argv)
 		ft_affich_pars(&first, 0);
 		return (-1);
 	}
+	ft_init_struct(&first, 2);
 	if (ft_mlx(&first) == -1)
 	{
 		return (-1);
