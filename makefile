@@ -6,7 +6,7 @@
 #    By: prossi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/25 12:07:08 by prossi            #+#    #+#              #
-#    Updated: 2017/06/20 01:24:50 by prossi           ###   ########.fr        #
+#    Updated: 2017/09/04 15:30:56 by prossi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = fdf
 SRC_PATH = src
 
 SRC_NAME = main.c ft_init_struct.c ft_affich.c ft_parsing.c ft_mlx.c \
-			ft_key_number.c ft_map2d.c ft_map3d.c
+			ft_key_number.c ft_map2d.c ft_tabpos.c
 
 # OBJ_PATH = $(SRC_PATH)
 

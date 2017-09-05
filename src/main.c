@@ -12,7 +12,22 @@
 
 #include "../include/fdf.h"
 
-int			main(int argc, char **argv)
+int		ft_reduce(t_first *first, char **argv)
+{
+	if ((first->fd = open(argv[1], O_RDONLY)) == -1)
+	{
+		ft_affich_first(first, 2);
+		return (-1);
+	}
+	if (!(first->buf = ft_readfile(first->fd)))
+	{
+		ft_affich_first(first, 3);
+		return (-1);
+	}
+	return (0);
+}
+
+int		main(int argc, char **argv)
 {
 	t_first		first;
 
@@ -23,16 +38,8 @@ int			main(int argc, char **argv)
 	}
 	ft_affich_first(&first, 1);
 	ft_init_struct(&first, 1);
-	if ((first.fd = open(argv[1], O_RDONLY)) == -1)
-	{
-		ft_affich_first(&first, 2);
+	if (ft_reduce(&first, argv) == -1)
 		return (-1);
-	}
-	if (!(first.buf = ft_readfile(first.fd)))
-	{
-		ft_affich_first(&first, 3);
-		return (-1);
-	}
 	if (ft_parsing(&first) == -1)
 	{
 		ft_affich_pars(&first, 0);

@@ -13,9 +13,6 @@
 #ifndef FDF_H
 # define FDF_H
 
-	// Changer le path en # include <mlx.h> Dump 42
-	// Changer le path en # include "../../../minilibx_macos/mlx.h"
-	// Ajouter -lmlx makefile Dump 42
 # include <mlx.h>
 # include <stdio.h>
 # include "../my_libft/include/off_libft/libft.h"
@@ -27,7 +24,7 @@ typedef struct		s_draw
 {
 	void			*init;
 	void			*wdow;
-	void 			*img;
+	void			*img;
 	double			posx;
 	double			posy;
 	int				padx;
@@ -50,6 +47,15 @@ typedef struct		s_pars
 	int				**tabi;
 	int				**tabposx;
 	int				**tabposy;
+	int				xi;
+	int				yi;
+	int				xf;
+	int				yf;
+	int				cumul;
+	int				dx;
+	int				dy;
+	int				xinc;
+	int				yinc;
 }					t_pars;
 
 typedef struct		s_first
@@ -60,16 +66,16 @@ typedef struct		s_first
 	char			*buf;
 }					t_first;
 
-void		ft_affich_first(t_first *first, int option);
-void		ft_affich_draw(t_first *first, int option);
-void		ft_affich_pars(t_first *first, int option);
-void		ft_init_struct(t_first *first, int option);
-int			ft_parsing(t_first *first);
-int			ft_mlx(t_first *first);
-int			ft_key_number(int keycode);
-void		ft_map2d(t_first *first);
-void 		ft_map3d(t_first *first);
-void		mlx_pixel_put_to_image(t_draw draw, int x, int y, int color);
-void		ft_tabpos(t_first *first);
+void				ft_affich_first(t_first *first, int option);
+void				ft_affich_pars(t_first *first, int option);
+void				ft_init_struct(t_first *first, int option);
+int					ft_parsing(t_first *first);
+int					ft_mlx(t_first *first);
+int					ft_key_number(int keycode);
+void				ft_map2d(t_first *first);
+void				ft_tabpos(t_first *first);
+void				mlx_pixel_put_to_image(t_draw draw, int x, int y, \
+	int color);
+void				ft_tabpos(t_first *first);
 
 #endif

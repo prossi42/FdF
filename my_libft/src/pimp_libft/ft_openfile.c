@@ -18,7 +18,9 @@ int		ft_openfile(char *file)
 
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
+	{
 		ft_putstr("error in open process\n");
 		return (-1);
+	}
 	return (fd);
 }

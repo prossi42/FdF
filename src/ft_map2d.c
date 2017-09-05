@@ -12,71 +12,89 @@
 
 #include "../include/fdf.h"
 
-void    ft_segment(int xi,int yi,int xf,int yf, t_first *first)
+void	ft_segment_td(t_first *first)
 {
-      int   dx;
-      int   dy;
-      int   i;
-      int   xinc;
-      int   yinc;
-      int   cumul;
-      int   x;
-      int   y;
+	int		i;
 
-      x = xi;
-      y = yi;
-      dx = xf - xi;
-      dy = yf - yi;
-      xinc = ( dx > 0 ) ? 1 : -1;
-      yinc = ( dy > 0 ) ? 1 : -1;
-      dx = abs(dx);
-      dy = abs(dy);
-      mlx_pixel_put_to_image(first->draw, x, y, 0xFFFFFF);
-      if (dx > dy)
-      {
-            cumul = dx / 2;
-            i = 1;
-            while (i <= dx)
-            {
-                x += xinc;
-                cumul += dy;
-                if (cumul >= dx)
-                {
-                    cumul -= dx;
-                    y += yinc;
-                }
-                mlx_pixel_put_to_image(first->draw, x, y, 0xFFFFFF);
-                i++;
-            }
-      }
-      else
-      {
-          cumul = dy / 2;
-          i = 1;
-          while (i <= dy)
-          {
-              y += yinc ;
-              cumul += dx ;
-              if ( cumul >= dy )
-              {
-                  cumul -= dy ;
-                  x += xinc ;
-              }
-              mlx_pixel_put_to_image(first->draw, x, y, 0xFFFFFF);
-              i++;
-          }
-      }
+	first->pars.cumul = first->pars.dy / 2;
+	i = 1;
+	while (i <= first->pars.dy)
+	{
+		first->pars.yi += first->pars.yinc;
+		first->pars.cumul += first->pars.dx;
+		if (first->pars.cumul >= first->pars.dy)
+		{
+			first->pars.cumul -= first->pars.dy;
+			first->pars.xi += first->pars.xinc;
+		}
+		mlx_pixel_put_to_image(first->draw, first->pars.xi, first->pars.yi \
+			, 0xFFFFFF);
+		i++;
+	}
 }
 
-void        ft_trace(t_first *first, int x, int y)
+void	ft_segment_sd(t_first *first)
 {
-    if ((x + 1) < first->pars.x_max)
-        ft_segment(first->pars.tabposx[y][x], first->pars.tabposy[y][x], first->pars.tabposx[y][x + 1], first->pars.tabposy[y][x + 1], first);
-    if ((y + 1) < first->pars.y_max - 1)
-        ft_segment(first->pars.tabposx[y][x], first->pars.tabposy[y][x], first->pars.tabposx[y + 1][x], first->pars.tabposy[y + 1][x], first);
+	int		i;
+
+	first->pars.cumul = first->pars.dx / 2;
+	i = 1;
+	while (i <= first->pars.dx)
+	{
+		first->pars.xi += first->pars.xinc;
+		first->pars.cumul += first->pars.dy;
+		if (first->pars.cumul >= first->pars.dx)
+		{
+			first->pars.cumul -= first->pars.dx;
+			first->pars.yi += first->pars.yinc;
+		}
+		mlx_pixel_put_to_image(first->draw, first->pars.xi, first->pars.yi \
+			, 0xFFFFFF);
+		i++;
+	}
 }
 
-void		ft_map2d(t_first *first)
+void	ft_segment(t_first *first)
+{
+	int		i;
+
+	first->pars.dx = first->pars.xf - first->pars.xi;
+	first->pars.dy = first->pars.yf - first->pars.yi;
+	first->pars.xinc = (first->pars.dx > 0) ? 1 : -1;
+	first->pars.yinc = (first->pars.dy > 0) ? 1 : -1;
+	first->pars.dx = abs(first->pars.dx);
+	first->pars.dy = abs(first->pars.dy);
+	mlx_pixel_put_to_image(first->draw, first->pars.xi, first->pars.yi, \
+		0xFFFFFF);
+	if (first->pars.dx > first->pars.dy)
+		ft_segment_sd(first);
+	else
+	{
+		ft_segment_td(first);
+	}
+}
+
+void	ft_trace(t_first *first, int x, int y)
+{
+	if ((x + 1) < first->pars.x_max)
+	{
+		first->pars.xi = first->pars.tabposx[y][x];
+		first->pars.yi = first->pars.tabposy[y][x];
+		first->pars.xf = first->pars.tabposx[y][x + 1];
+		first->pars.yf = first->pars.tabposy[y][x + 1];
+		ft_segment(first);
+	}
+	if ((y + 1) < first->pars.y_max - 1)
+	{
+		first->pars.xi = first->pars.tabposx[y][x];
+		first->pars.yi = first->pars.tabposy[y][x];
+		first->pars.xf = first->pars.tabposx[y + 1][x];
+		first->pars.yf = first->pars.tabposy[y + 1][x];
+		ft_segment(first);
+	}
+}
+
+void	ft_map2d(t_first *first)
 {
 	int		x;
 	int		y;
@@ -87,9 +105,10 @@ void		ft_map2d(t_first *first)
 	{
 		while (x < first->pars.x_max)
 		{
-    		mlx_pixel_put_to_image(first->draw, first->pars.tabposx[y][x], first->pars.tabposy[y][x], 0xFFFFFF);
-            ft_trace(first, x, y);
-    		x++;
+			mlx_pixel_put_to_image(first->draw, first->pars.tabposx[y][x], \
+				first->pars.tabposy[y][x], 0xFFFFFF);
+			ft_trace(first, x, y);
+			x++;
 		}
 		x = 0;
 		y++;

@@ -23,6 +23,12 @@ char	*ft_readfile(int fd)
 		return (NULL);
 	while ((ret = read(fd, buf, BUFF_SIZE)))
 	{
+		if (ret == -1)
+		{
+			ft_putstr("It's the end of our journey, no map, no job !\n\n");
+			ft_putstr("Deal with it !");
+			exit(-1);
+		}
 		buf[ret] = '\0';
 		tmp = ft_strcat(tmp, buf);
 		tmp = ft_realloc_free(tmp, ft_strlen(buf));

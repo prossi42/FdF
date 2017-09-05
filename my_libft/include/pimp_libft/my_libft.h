@@ -28,6 +28,6 @@ int			ft_closefile(int fd);
 int			get_next_line(const int fd, char **line);
 char		*ft_realloc_free(char *init, int len);
 char		*ft_strjoin_free(char *s1, char *s2, int option);
-int         **ft_tabint(int x, int y);
+int			**ft_tabint(int x, int y);
 
 #endif
