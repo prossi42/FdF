@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_key_number.c                                    :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/02 22:58:21 by prossi            #+#    #+#             */
-/*   Updated: 2017/08/02 22:58:42 by prossi           ###   ########.fr       */
+/*   Created: 2016/12/02 17:03:19 by prossi            #+#    #+#             */
+/*   Updated: 2017/02/27 12:50:58 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../../include/off_libft/libft.h"
 
-int			ft_key_number(int keycode)
+void	ft_putendl(char const *s)
 {
-	if (keycode == 53)
+	if (s)
 	{
-		ft_putstr("	End Of Program");
-		exit(-1);
+		ft_putstr(s);
+		ft_putchar('\n');
 	}
-	if (keycode == 0)
-		return (97);
-	if (keycode == 11)
-		return (98);
-	return (-1);
 }

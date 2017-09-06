@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_key_number.c                                    :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/02 22:58:21 by prossi            #+#    #+#             */
-/*   Updated: 2017/08/02 22:58:42 by prossi           ###   ########.fr       */
+/*   Created: 2016/11/22 10:09:58 by prossi            #+#    #+#             */
+/*   Updated: 2017/02/27 12:15:52 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../../include/off_libft/libft.h"
 
-int			ft_key_number(int keycode)
+void	ft_bzero(void *s, size_t n)
 {
-	if (keycode == 53)
+	char	*a;
+	size_t	i;
+
+	i = 0;
+	a = (char *)s;
+	while (i < n)
 	{
-		ft_putstr("	End Of Program");
-		exit(-1);
+		a[i] = '\0';
+		i++;
 	}
-	if (keycode == 0)
-		return (97);
-	if (keycode == 11)
-		return (98);
-	return (-1);
 }

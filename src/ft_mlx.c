@@ -88,8 +88,9 @@ int		ft_mlx(t_first *first)
 	first->draw.wdow = mlx_new_window(first->draw.init, WINSIZE_X, WINSIZE_Y, \
 		"WTF !?!");
 	first->draw.img = mlx_new_image(first->draw.init, WINSIZE_X, WINSIZE_Y);
-	first->draw.map = (char *)malloc(sizeof(char) * WINSIZE_X * WINSIZE_Y * \
-		first->draw.bpp);
+	if (!(first->draw.map = (char *)malloc(sizeof(char) * (WINSIZE_X * \
+		WINSIZE_Y * first->draw.bpp))))
+		return (-1);
 	first->draw.map = mlx_get_data_addr(first->draw.img, &first->draw.bpp, \
 		&first->draw.size_line, &first->draw.endian);
 	ft_tabpos(first);

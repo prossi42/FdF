@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_key_number.c                                    :+:      :+:    :+:   */
+/*   ft_realloc_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/02 22:58:21 by prossi            #+#    #+#             */
-/*   Updated: 2017/08/02 22:58:42 by prossi           ###   ########.fr       */
+/*   Created: 2017/05/27 03:02:40 by prossi            #+#    #+#             */
+/*   Updated: 2017/05/27 03:12:14 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../../include/pimp_libft/my_libft.h"
 
-int			ft_key_number(int keycode)
+char		*ft_realloc_free(char *init, int len)
 {
-	if (keycode == 53)
+	char		*end;
+	int			i;
+
+	i = 0;
+	end = ft_strnew(len + ft_strlen(init));
+	while (init[i])
 	{
-		ft_putstr("	End Of Program");
-		exit(-1);
+		end[i] = init[i];
+		i++;
 	}
-	if (keycode == 0)
-		return (97);
-	if (keycode == 11)
-		return (98);
-	return (-1);
+	end[i] = '\0';
+	ft_strdel(&init);
+	return (end);
 }

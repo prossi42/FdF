@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_key_number.c                                    :+:      :+:    :+:   */
+/*   ft_tabint.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/02 22:58:21 by prossi            #+#    #+#             */
-/*   Updated: 2017/08/02 22:58:42 by prossi           ###   ########.fr       */
+/*   Created: 2017/09/05 15:24:52 by prossi            #+#    #+#             */
+/*   Updated: 2017/09/05 15:24:55 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../../include/pimp_libft/my_libft.h"
 
-int			ft_key_number(int keycode)
+int		**ft_tabint(int x, int y)
 {
-	if (keycode == 53)
+	int		**tabi;
+	int		i;
+
+	i = 0;
+	tabi = 0;
+	tabi = (int **)malloc(sizeof(int *) * y);
+	while (i < y)
 	{
-		ft_putstr("	End Of Program");
-		exit(-1);
+		tabi[i] = (int *)malloc(sizeof(int) * x);
+		i++;
 	}
-	if (keycode == 0)
-		return (97);
-	if (keycode == 11)
-		return (98);
-	return (-1);
+	return (tabi);
 }

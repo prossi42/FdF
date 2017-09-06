@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_key_number.c                                    :+:      :+:    :+:   */
+/*   ft_strputneg.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/02 22:58:21 by prossi            #+#    #+#             */
-/*   Updated: 2017/08/02 22:58:42 by prossi           ###   ########.fr       */
+/*   Created: 2016/12/12 15:18:35 by prossi            #+#    #+#             */
+/*   Updated: 2017/02/27 12:56:58 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../../include/off_libft/libft.h"
 
-int			ft_key_number(int keycode)
+char	*ft_strputneg(int n, char *strnb)
 {
-	if (keycode == 53)
-	{
-		ft_putstr("	End Of Program");
-		exit(-1);
-	}
-	if (keycode == 0)
-		return (97);
-	if (keycode == 11)
-		return (98);
-	return (-1);
+	if (n < 0)
+		strnb[0] = '-';
+	return (strnb);
 }

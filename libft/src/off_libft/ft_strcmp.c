@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_key_number.c                                    :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/02 22:58:21 by prossi            #+#    #+#             */
-/*   Updated: 2017/08/02 22:58:42 by prossi           ###   ########.fr       */
+/*   Created: 2016/11/28 09:51:47 by prossi            #+#    #+#             */
+/*   Updated: 2017/02/27 12:52:44 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../../include/off_libft/libft.h"
 
-int			ft_key_number(int keycode)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	if (keycode == 53)
+	t_byte	*str1;
+	t_byte	*str2;
+	size_t	i;
+
+	str1 = (t_byte *)s1;
+	str2 = (t_byte *)s2;
+	i = 0;
+	while (str1[i] || str2[i])
 	{
-		ft_putstr("	End Of Program");
-		exit(-1);
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
 	}
-	if (keycode == 0)
-		return (97);
-	if (keycode == 11)
-		return (98);
-	return (-1);
+	return (0);
 }

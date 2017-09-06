@@ -15,8 +15,8 @@
 
 # include <mlx.h>
 # include <stdio.h>
-# include "../my_libft/include/off_libft/libft.h"
-# include "../my_libft/include/pimp_libft/my_libft.h"
+# include "../libft/include/off_libft/libft.h"
+# include "../libft/include/pimp_libft/my_libft.h"
 # define WINSIZE_X 1800
 # define WINSIZE_Y 900
 

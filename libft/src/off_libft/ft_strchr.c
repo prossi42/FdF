@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_key_number.c                                    :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/02 22:58:21 by prossi            #+#    #+#             */
-/*   Updated: 2017/08/02 22:58:42 by prossi           ###   ########.fr       */
+/*   Created: 2016/11/25 11:03:45 by prossi            #+#    #+#             */
+/*   Updated: 2017/02/27 12:52:20 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include <string.h>
+#include "../../include/off_libft/libft.h"
 
-int			ft_key_number(int keycode)
+char	*ft_strchr(const char *s, int c)
 {
-	if (keycode == 53)
+	size_t	i;
+	char	charc;
+
+	charc = (char)c;
+	i = 0;
+	while (s[i])
 	{
-		ft_putstr("	End Of Program");
-		exit(-1);
+		if (s[i] == charc)
+		{
+			return ((char *)s + i);
+		}
+		i++;
 	}
-	if (keycode == 0)
-		return (97);
-	if (keycode == 11)
-		return (98);
-	return (-1);
+	if (charc == '\0')
+		return ((char *)s + i);
+	return (NULL);
 }

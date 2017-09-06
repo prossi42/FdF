@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_key_number.c                                    :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/02 22:58:21 by prossi            #+#    #+#             */
-/*   Updated: 2017/08/02 22:58:42 by prossi           ###   ########.fr       */
+/*   Created: 2016/11/22 10:10:39 by prossi            #+#    #+#             */
+/*   Updated: 2017/02/27 12:49:43 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../../include/off_libft/libft.h"
 
-int			ft_key_number(int keycode)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	if (keycode == 53)
+	t_byte	*a;
+	t_byte	*b;
+	size_t	i;
+
+	i = 0;
+	a = (t_byte *)src;
+	b = (t_byte *)dst;
+	if (n == 0)
+		return (dst);
+	while (i < n)
 	{
-		ft_putstr("	End Of Program");
-		exit(-1);
+		b[i] = a[i];
+		i++;
 	}
-	if (keycode == 0)
-		return (97);
-	if (keycode == 11)
-		return (98);
-	return (-1);
+	return (dst);
 }

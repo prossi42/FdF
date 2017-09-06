@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_key_number.c                                    :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/02 22:58:21 by prossi            #+#    #+#             */
-/*   Updated: 2017/08/02 22:58:42 by prossi           ###   ########.fr       */
+/*   Created: 2016/11/23 15:26:13 by prossi            #+#    #+#             */
+/*   Updated: 2017/02/27 12:49:31 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../../include/off_libft/libft.h"
 
-int			ft_key_number(int keycode)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	if (keycode == 53)
+	t_byte	*str1;
+	t_byte	*str2;
+	size_t	i;
+
+	str1 = (t_byte *)s1;
+	str2 = (t_byte *)s2;
+	i = 0;
+	if (str1 == str2 || n == 0)
+		return (0);
+	while (n--)
 	{
-		ft_putstr("	End Of Program");
-		exit(-1);
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
 	}
-	if (keycode == 0)
-		return (97);
-	if (keycode == 11)
-		return (98);
-	return (-1);
+	return (0);
 }

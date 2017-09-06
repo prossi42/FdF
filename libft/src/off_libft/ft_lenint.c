@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_key_number.c                                    :+:      :+:    :+:   */
+/*   ft_lenint.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/02 22:58:21 by prossi            #+#    #+#             */
-/*   Updated: 2017/08/02 22:58:42 by prossi           ###   ########.fr       */
+/*   Created: 2016/12/12 14:24:38 by prossi            #+#    #+#             */
+/*   Updated: 2017/02/27 12:18:43 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../../include/off_libft/libft.h"
 
-int			ft_key_number(int keycode)
+int		ft_lenint(int n)
 {
-	if (keycode == 53)
+	int		len;
+	long	nb;
+
+	len = 1;
+	nb = (long)n;
+	if (nb < 0)
 	{
-		ft_putstr("	End Of Program");
-		exit(-1);
+		len++;
+		nb *= -1;
 	}
-	if (keycode == 0)
-		return (97);
-	if (keycode == 11)
-		return (98);
-	return (-1);
+	while (nb > 9)
+	{
+		len++;
+		nb /= 10;
+	}
+	return (len);
 }

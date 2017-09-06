@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_key_number.c                                    :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/02 22:58:21 by prossi            #+#    #+#             */
-/*   Updated: 2017/08/02 22:58:42 by prossi           ###   ########.fr       */
+/*   Created: 2016/12/02 14:34:15 by prossi            #+#    #+#             */
+/*   Updated: 2017/02/27 12:56:28 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../../include/off_libft/libft.h"
 
-int			ft_key_number(int keycode)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	if (keycode == 53)
+	size_t	i;
+
+	i = 0;
+	if (s1 && s2)
 	{
-		ft_putstr("	End Of Program");
-		exit(-1);
+		while ((s1[i] || s2[i]) && i < n)
+		{
+			if (s1[i] != s2[i])
+				return (0);
+			i++;
+		}
 	}
-	if (keycode == 0)
-		return (97);
-	if (keycode == 11)
-		return (98);
-	return (-1);
+	return (1);
 }

@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_key_number.c                                    :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/02 22:58:21 by prossi            #+#    #+#             */
-/*   Updated: 2017/08/02 22:58:42 by prossi           ###   ########.fr       */
+/*   Created: 2016/12/01 17:07:24 by prossi            #+#    #+#             */
+/*   Updated: 2017/02/27 12:49:55 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include <stdlib.h>
+#include "../../include/off_libft/libft.h"
 
-int			ft_key_number(int keycode)
+void	ft_memdel(void **ap)
 {
-	if (keycode == 53)
+	if (ap)
 	{
-		ft_putstr("	End Of Program");
-		exit(-1);
+		free(*ap);
+		*ap = NULL;
 	}
-	if (keycode == 0)
-		return (97);
-	if (keycode == 11)
-		return (98);
-	return (-1);
 }

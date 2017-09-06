@@ -31,6 +31,7 @@ void	ft_init_struct(t_first *first, int option)
 		first->draw.pady = ((WINSIZE_X) / first->pars.x_max);
 		first->draw.prof = 10;
 		first->draw.rot = 0;
+		first->draw.zoom = 0;
 	}
 	if (option == 3)
 	{

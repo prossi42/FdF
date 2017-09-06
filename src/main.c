@@ -12,6 +12,23 @@
 
 #include "../include/fdf.h"
 
+void	ft_command_ctrl(void)
+{
+	ft_putstr("\n ---> This is your turn now !\n");
+	ft_putstr("\n -------------------------------------------- ");
+	ft_putstr("\n|                            ^               |");
+	ft_putstr("\n|            You can move  <   >             |");
+	ft_putstr("\n|                            v               |");
+	ft_putstr("\n|       You can zoom with '/' & '*'          |");
+	ft_putstr("\n|                                            |");
+	ft_putstr("\n|  You can rotate...hum with 'a' & 'b'       |");
+	ft_putstr("\n|                                            |");
+	ft_putstr("\n|  You can inc. & dec. depth with '+' & '-'  |");
+	ft_putstr("\n|                                            |");
+	ft_putstr("\n|        You can reset with 'return'         |");
+	ft_putstr("\n --------------------------------------------\n\n");
+}
+
 int		ft_reduce(t_first *first, char **argv)
 {
 	if ((first->fd = open(argv[1], O_RDONLY)) == -1)
@@ -45,11 +62,9 @@ int		main(int argc, char **argv)
 		ft_affich_pars(&first, 0);
 		return (-1);
 	}
+	ft_command_ctrl();
 	ft_init_struct(&first, 2);
 	if (ft_mlx(&first) == -1)
-	{
 		return (-1);
-	}
-	close(first.fd);
 	return (0);
 }

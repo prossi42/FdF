@@ -12,6 +12,18 @@
 
 #include "../include/fdf.h"
 
+void	ft_undertwentyfive(t_first *first, int x)
+{
+	if (first->pars.x_max == 0)
+		first->pars.x_max = x;
+	if (first->pars.x_max != 0 && x != first->pars.x_max)
+	{
+		ft_putstr(" xxxx Sorry i can't work with this map !\n");
+		ft_putstr(" \t|---> I need one with same x_max on each line !\n\n");
+		exit(-1);
+	}
+}
+
 void	ft_count_point(t_first *first, int i)
 {
 	int		x;
@@ -19,21 +31,20 @@ void	ft_count_point(t_first *first, int i)
 
 	x = 0;
 	y = 0;
-	while (first->buf[i++])
+	while (first->buf[i])
 	{
 		if (first->buf[i] >= '0' && first->buf[i] <= '9')
 			if (first->buf[i + 1] == ' ' || first->buf[i + 1] == '\n')
 				x++;
 		if (first->buf[i] == '\n')
 		{
-			if (x >= first->pars.x_max)
-			{
-				first->pars.x_max = x;
-				x = 0;
-			}
+			ft_undertwentyfive(first, x);
+			x = 0;
 			y++;
 		}
+		i++;
 	}
+	y++;
 	if (first->buf[i - 1] != '\n')
 		y++;
 	first->pars.y_max = y;
@@ -70,8 +81,10 @@ void	ft_get_number(t_first *first)
 int		ft_check_map(t_first *first)
 {
 	int		i;
+	int		j;
 
 	i = 0;
+	j = 0;
 	if (first->buf[0] == '\0')
 		return (-1);
 	while (first->buf[i])
@@ -82,8 +95,12 @@ int		ft_check_map(t_first *first)
 				return (-1);
 		if (first->buf[i] == '-' && first->buf[i + 1] == ' ')
 			return (-1);
+		if (first->buf[i] == ' ')
+			j++;
 		i++;
 	}
+	if (i == (j - 1))
+		return (-1);
 	return (0);
 }
 

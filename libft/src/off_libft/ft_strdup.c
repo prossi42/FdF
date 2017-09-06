@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_key_number.c                                    :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/02 22:58:21 by prossi            #+#    #+#             */
-/*   Updated: 2017/08/02 22:58:42 by prossi           ###   ########.fr       */
+/*   Created: 2016/11/18 13:58:44 by prossi            #+#    #+#             */
+/*   Updated: 2017/02/27 12:53:21 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include <stdlib.h>
+#include "../../include/off_libft/libft.h"
 
-int			ft_key_number(int keycode)
+char		*ft_strdup(const char *s1)
 {
-	if (keycode == 53)
+	char	*s2;
+	int		i;
+
+	if (!(s2 = (char *)malloc(sizeof(char) * ft_strlen(s1) + 1)))
+		return (NULL);
+	i = 0;
+	while (s1[i])
 	{
-		ft_putstr("	End Of Program");
-		exit(-1);
+		s2[i] = s1[i];
+		i++;
 	}
-	if (keycode == 0)
-		return (97);
-	if (keycode == 11)
-		return (98);
-	return (-1);
+	s2[i] = '\0';
+	return (s2);
 }

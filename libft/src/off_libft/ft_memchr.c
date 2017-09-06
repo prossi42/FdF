@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_key_number.c                                    :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/02 22:58:21 by prossi            #+#    #+#             */
-/*   Updated: 2017/08/02 22:58:42 by prossi           ###   ########.fr       */
+/*   Created: 2016/11/23 14:42:26 by prossi            #+#    #+#             */
+/*   Updated: 2017/02/27 12:49:21 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../../include/off_libft/libft.h"
 
-int			ft_key_number(int keycode)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if (keycode == 53)
+	t_byte	*src;
+	t_byte	uncharc;
+	size_t	i;
+
+	src = (t_byte *)s;
+	i = 0;
+	uncharc = (t_byte)c;
+	while (n--)
 	{
-		ft_putstr("	End Of Program");
-		exit(-1);
+		if (src[i] == uncharc)
+			return (src + i);
+		i++;
 	}
-	if (keycode == 0)
-		return (97);
-	if (keycode == 11)
-		return (98);
-	return (-1);
+	return (NULL);
 }

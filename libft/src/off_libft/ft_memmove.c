@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_key_number.c                                    :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/02 22:58:21 by prossi            #+#    #+#             */
-/*   Updated: 2017/08/02 22:58:42 by prossi           ###   ########.fr       */
+/*   Created: 2016/11/23 12:14:28 by prossi            #+#    #+#             */
+/*   Updated: 2017/02/27 12:50:14 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../../include/off_libft/libft.h"
+#include <stdlib.h>
 
-int			ft_key_number(int keycode)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	if (keycode == 53)
-	{
-		ft_putstr("	End Of Program");
-		exit(-1);
-	}
-	if (keycode == 0)
-		return (97);
-	if (keycode == 11)
-		return (98);
-	return (-1);
+	char	*d;
+	char	*s;
+	size_t	i;
+
+	d = (char *)dst;
+	s = (char *)src;
+	i = 0;
+	while (i++ < len && dst < src)
+		d[i - 1] = s[i - 1];
+	while (len-- > 0 && dst > src)
+		d[len] = s[len];
+	return (d);
 }

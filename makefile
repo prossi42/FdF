@@ -6,7 +6,7 @@
 #    By: prossi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/25 12:07:08 by prossi            #+#    #+#              #
-#    Updated: 2017/09/04 15:30:56 by prossi           ###   ########.fr        #
+#    Updated: 2017/09/06 15:04:03 by prossi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,8 @@ SRC_NAME = main.c ft_init_struct.c ft_affich.c ft_parsing.c ft_mlx.c \
 
 # OBJ_PATH = $(SRC_PATH)
 
-LDFLAGS = -Lmy_libft
-LDLIBS = my_libft/my_libft.a
+LDFLAGS = -Llibft
+LDLIBS = libft/my_libft.a
 
 CC = gcc
 CFLAGS = -lmlx -framework OpenGL -framework Appkit
@@ -35,7 +35,7 @@ SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 all: $(NAME)
 
 $(NAME): $(SRC)
-	cd my_libft/ ; make re; make clean ; cd ..
+	cd libft/ ; make re; make clean ; cd ..
 	$(CC) $(LDFLAGS) $(LDLIBS) -o $@ $^ $(CFLAGS)
 
 clean:
@@ -43,9 +43,6 @@ clean:
 	@rmdir $(OBJ_PATH) 2> /dev/null || true
 
 fclean: clean
-	cd my_libft/ ; make fclean ; cd .. ; rm -fv $(NAME)
+	cd libft/ ; make fclean ; cd .. ; rm -fv $(NAME)
 
 re: fclean all
-
-norme:
-	norminette $(SRC)
