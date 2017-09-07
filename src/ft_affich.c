@@ -6,7 +6,7 @@
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/09 00:55:02 by prossi            #+#    #+#             */
-/*   Updated: 2017/06/09 00:55:08 by prossi           ###   ########.fr       */
+/*   Updated: 2017/09/07 10:02:18 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@ void	ft_affich_pars(t_first *first, int option)
 	if (option == 1)
 	{
 		ft_putendl(" ---> Ok ! So this is the Map...\n");
-		ft_putstr(" ---> Valeur Max en x : [");
-		ft_putnbr(first->pars.x_max);
-		ft_putendl("]");
-		ft_putstr(" ---> Valeur Max en y : [");
-		ft_putnbr(first->pars.y_max);
-		ft_putendl("]\n");
 	}
 }
 

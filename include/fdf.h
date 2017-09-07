@@ -6,7 +6,7 @@
 /*   By: prossi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/03 03:11:29 by prossi            #+#    #+#             */
-/*   Updated: 2017/08/02 19:22:48 by prossi           ###   ########.fr       */
+/*   Updated: 2017/09/07 09:59:21 by prossi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FDF_H
 
 # include <mlx.h>
-# include <stdio.h>
 # include "../libft/include/off_libft/libft.h"
 # include "../libft/include/pimp_libft/my_libft.h"
 # define WINSIZE_X 1800
